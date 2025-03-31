@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rock-music-band
+  labels:
+    app: rock-music-band
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rock-music-band
+  template:
+    metadata:
+      labels:
+        app: rock-music-band
+    spec:
+      containers:
+      - name: rock-music-band
+        image: bulawesley/rock-music-band:v13
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rock-music-band-service
+spec:
+  selector:
+    app: rock-music-band
+  ports:
+  - protocol: TCP
+    port: 80           # exposed to the world
+    targetPort: 3000   # mapped to your app
+  type: LoadBalancer
+
