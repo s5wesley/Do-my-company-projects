@@ -4,8 +4,8 @@ resource "google_compute_firewall" "allow_ssh_to_bastion" {
   network = google_compute_network.vpc_network.name
 
   direction     = "INGRESS"
-  source_ranges = ["216.77.41.110/32"]  # Your IP address
-  target_tags   = ["bastion"]           # Ensure this tag is on your Bastion Host
+  source_ranges = [var.bastion_ssh_source_ip] # Your public IP in CIDR format
+  target_tags   = ["bastion"]                 # Ensure this tag is on your Bastion Host
 
   allow {
     protocol = "tcp"
@@ -28,15 +28,15 @@ resource "google_compute_firewall" "allow_bastion_to_gke_control_plane" {
   }
 }
 
-# 🔥 NEW: Egress rule to allow Bastion Host to reach GKE control plane's public IP
+# Egress rule to allow Bastion Host to reach GKE control plane's public IP
 resource "google_compute_firewall" "egress_bastion_to_gke" {
   name    = "egress-bastion-to-gke"
   network = google_compute_network.vpc_network.name
 
   direction          = "EGRESS"
   priority           = 1000
-  destination_ranges = ["34.55.153.108/32"]  # GKE control plane public IP
-  target_tags        = ["bastion"]           # Bastion host tag
+  destination_ranges = ["172.16.0.2/32"] # GKE control plane public IP
+  target_tags        = ["bastion"]       # Bastion host tag
 
   allow {
     protocol = "tcp"
