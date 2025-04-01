@@ -9,6 +9,6 @@ resource "google_compute_firewall" "allow_jenkins" {
     ports    = ["22", "8080"]
   }
 
-  source_ranges = ["75.183.218.164/32"]
+  source_ranges = var.source_ranges
   target_tags   = var.tags
 }

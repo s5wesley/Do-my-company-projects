@@ -11,3 +11,5 @@ tags                 = ["allow-ssh"]
 service_account_name = "vm-service-account"
 image_family         = "debian-11"
 image_project        = "debian-cloud"
+source_ranges        = ["75.183.218.164/32"]
+

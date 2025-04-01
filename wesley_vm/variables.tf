@@ -62,3 +62,10 @@ variable "service_account_name" {
   description = "Name of the custom service account"
   type        = string
 }
+
+variable "source_ranges" {
+  description = "List of CIDR blocks allowed through the firewall"
+  type        = list(string)
+  default     = ["0.0.0.0/0"] # You can override this in .tfvars
+}
+
