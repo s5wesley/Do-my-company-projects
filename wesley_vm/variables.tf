@@ -33,6 +33,11 @@ variable "subnet_name" {
   type        = string
 }
 
+variable "subnet_ip_range" {
+  description = "CIDR range for the subnet"
+  type        = string
+}
+
 variable "firewall_name" {
   description = "Name of the firewall rule"
   type        = string
@@ -46,17 +51,14 @@ variable "tags" {
 variable "image_family" {
   description = "Image family for the boot disk"
   type        = string
-  default     = "debian-11"
 }
 
 variable "image_project" {
   description = "Image project"
   type        = string
-  default     = "debian-cloud"
 }
 
 variable "service_account_name" {
   description = "Name of the custom service account"
   type        = string
-  default     = "vm-service-account"
 }
