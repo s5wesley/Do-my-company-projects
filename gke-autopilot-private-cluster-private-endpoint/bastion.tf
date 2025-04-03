@@ -10,14 +10,12 @@ resource "google_compute_instance" "bastion" {
   }
 
   network_interface {
-    subnetwork         = google_compute_subnetwork.subnet.name
-    network_ip         = var.bastion_internal_ip
+    subnetwork = google_compute_subnetwork.subnet.name
+    network_ip = var.bastion_internal_ip
     access_config {}
   }
 
   tags = ["bastion"]
 
-  metadata = {
-    ssh-keys = "ubuntu:${file("/home/wesleymbarga/.ssh/id_rsa.pub")}"
-  }
+  # No metadata block needed if OS Login is enabled
 }

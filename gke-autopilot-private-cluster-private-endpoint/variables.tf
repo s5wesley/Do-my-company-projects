@@ -88,3 +88,9 @@ variable "business_division" {
   description = "Business division tag"
   type        = string
 }
+
+variable "bastion_ssh_source_ip" {
+  description = "Your public IP address for SSH to the Bastion Host (CIDR format)"
+  type        = string
+}
+

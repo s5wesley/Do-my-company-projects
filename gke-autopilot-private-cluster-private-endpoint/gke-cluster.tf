@@ -8,7 +8,7 @@ resource "google_container_cluster" "autopilot_cluster" {
 
   private_cluster_config {
     enable_private_nodes    = true
-    enable_private_endpoint = false
+    enable_private_endpoint = true
     master_ipv4_cidr_block  = var.master_cidr_block
   }
 
@@ -17,11 +17,11 @@ resource "google_container_cluster" "autopilot_cluster" {
     services_secondary_range_name = "services"
   }
 
-master_authorized_networks_config {
-  cidr_blocks {
-    cidr_block   = "${var.bastion_internal_ip}/32"
-    display_name = "Bastion Host"
-  }
+  master_authorized_networks_config {
+    cidr_blocks {
+      cidr_block   = "${var.bastion_internal_ip}/32"
+      display_name = "Bastion Host"
+    }
   }
 
   release_channel {
