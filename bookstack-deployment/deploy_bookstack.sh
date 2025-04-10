@@ -19,12 +19,17 @@ TZ=Etc/UTC
 APP_URL=https://bookstack.edusuc.net
 APP_KEY=base64:6um2Xi48STZ+dqwdHJOCgta1/VKJhdUj4gFjZEfchu4=
 
-# MariaDB Database Settings
+# MariaDB Credentials
 MYSQL_ROOT_PASSWORD=bookstack
 MYSQL_DATABASE=bookstackapp
 MYSQL_USER=bookstack
 MYSQL_PASSWORD=bookstack
 DB_PORT=3306
+
+# BookStack-specific DB access (explicit)
+DB_USER=bookstack
+DB_PASS=bookstack
+DB_DATABASE=bookstackapp
 
 # Gmail SMTP Settings
 MAIL_DRIVER=smtp
@@ -73,9 +78,9 @@ services:
       APP_KEY: \${APP_KEY}
       DB_HOST: bookstack_db
       DB_PORT: \${DB_PORT}
-      DB_USER: \${MYSQL_USER}
-      DB_PASS: \${MYSQL_PASSWORD}
-      DB_DATABASE: \${MYSQL_DATABASE}
+      DB_USER: \${DB_USER}
+      DB_PASS: \${DB_PASS}
+      DB_DATABASE: \${DB_DATABASE}
       MAIL_DRIVER: \${MAIL_DRIVER}
       MAIL_HOST: \${MAIL_HOST}
       MAIL_PORT: \${MAIL_PORT}

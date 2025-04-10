@@ -32,9 +32,9 @@ services:
       APP_KEY: ${APP_KEY}
       DB_HOST: bookstack_db
       DB_PORT: ${DB_PORT}
-      DB_USER: ${MYSQL_USER}
-      DB_PASS: ${MYSQL_PASSWORD}
-      DB_DATABASE: ${MYSQL_DATABASE}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_DATABASE: ${DB_DATABASE}
       MAIL_DRIVER: ${MAIL_DRIVER}
       MAIL_HOST: ${MAIL_HOST}
       MAIL_PORT: ${MAIL_PORT}
