@@ -1,9 +1,9 @@
 ## login informations 
-Email: admin2@admin.com
+Email: wesleymbarga@gmail.com
 
-Name: Admin 2
+Name: wesley
 
-Password: SecurePass123 (or anything 8+ characters)
+Password: wesleybe123 (or anything 8+ characters)
 
 ## Step 2: Restart the ngrok Tunnel
  - ngrok http 6875

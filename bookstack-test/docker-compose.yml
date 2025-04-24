@@ -12,7 +12,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       # - APP_URL=https://bookstack.edusuc.net
-      - APP_URL=https://8b96-98-101-113-220.ngrok-free.app 
+      - APP_URL=https://afdb-2603-6081-6f01-c47d-216-3eff-fe83-8b40.ngrok-free.app 
       - APP_KEY=base64:6um2Xi48STZ+dqwdHJOCgta1/VKJhdUj4gFjZEfchu4=
       - DB_HOST=bookstack_db
       - DB_PORT=3306
